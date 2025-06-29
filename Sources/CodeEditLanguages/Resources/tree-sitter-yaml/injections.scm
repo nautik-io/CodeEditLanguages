@@ -22,8 +22,7 @@
   key: (flow_node) @_run
   (#any-of? @_run "run" "script" "before_script" "after_script" "cmds" "cmd" "sh")
   value: (flow_node
-    (plain_scalar
-      (string_scalar) @injection.content)
+    [(double_quote_scalar) (single_quote_scalar)] @injection.content
     (#set! injection.language "bash")))
 
 (block_mapping_pair
@@ -41,9 +40,8 @@
     (block_sequence
       (block_sequence_item
         (flow_node
-          (plain_scalar
-            (string_scalar) @injection.content))
-        (#set! injection.language "bash")))))
+          [(double_quote_scalar) (single_quote_scalar)] @injection.content))
+        (#set! injection.language "bash"))))
 
 (block_mapping_pair
   key: (flow_node) @_run
@@ -61,8 +59,7 @@
   key: (flow_node) @_expr
   (#eq? @_expr "expr")
   value: (flow_node
-    (plain_scalar
-      (string_scalar) @injection.content)
+    [(double_quote_scalar) (single_quote_scalar)] @injection.content
     (#set! injection.language "promql")))
 
 (block_mapping_pair
@@ -80,9 +77,8 @@
     (block_sequence
       (block_sequence_item
         (flow_node
-          (plain_scalar
-            (string_scalar) @injection.content))
-        (#set! injection.language "promql")))))
+          [(double_quote_scalar) (single_quote_scalar)] @injection.content))
+        (#set! injection.language "promql"))))
 
 (block_mapping_pair
   key: (flow_node) @_expr
